@@ -1,4 +1,4 @@
-1. Sesiune "Eclipse Modeling Framework " 
+===Sesiune "Eclipse Modeling Framework " ===
 
 P1. EclipseCon 2008 - Fundamentals of the Eclipse Modeling Framework
 

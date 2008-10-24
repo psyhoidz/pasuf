@@ -52,14 +52,3 @@ P10. EclipseCon 2006 - Introduction to EMF
     * Presentation (PDF)
     * Workshop Project (ZIP)
 Student : 
-
-P11. EclipseCon 2006 - Advanced Features of EMF
-
-    * Presentation (PDF)
-    * Workshop Project (ZIP)
-Student : 
-
-P12. EclipseCon 2006 - XML Binding with EMF
-
-    * Presentation (PDF)
-    * Project (ZIP)

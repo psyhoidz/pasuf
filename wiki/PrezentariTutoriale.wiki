@@ -1,0 +1,65 @@
+1. Sesiune "Eclipse Modeling Framework " 
+
+P1. EclipseCon 2008 - Fundamentals of the Eclipse Modeling Framework
+
+    * Presentation (PDF)
+    * Exercises (ZIP)
+Student : 
+
+P2.EclipseWorld 2007 - Fundamentals of the Eclipse Modeling Framework
+
+    * Presentation (PDF)
+
+Student : 
+P3. Eclipse EMF Demo - A complete modeling platform for Java, presented by Ed Merks
+
+    * Flash or MP4 video (23 min, 84 MB)
+
+P4.Eclipse Modeling: What's New for Europa, presented by Richard Gronback and Ed Merks
+
+    * Webinar (features sound, video and chat transcript)
+
+
+P5.Eclipse Podcast: Wayne Beaton and Ed Merks - What is EMF? What does it do? What's new?
+
+    * MP3 (20 min, 18 MB)
+
+
+P6. OOPSLA 2006 - Introduction to EMF
+
+    * Presentation (PDF)
+    * Workshop Cheat Sheet Plugin (ZIP)
+
+Student : 
+
+P7. CASCON 2006 - Introduction to EMF
+
+    * Presentation (PDF)
+    * Workshop Cheat Sheet Plugin (ZIP)
+Student : 
+
+P8. Callisto Podcast: Ed Merks - Why people are confused by EMF and how this amazing tool can be leveraged in almost any situation.
+
+    * MP3 (37 min, 51 MB)
+
+P9. Using the Eclipse Modeling Frameworks
+
+    * Webinar (features sound, video and chat transcript)
+
+
+P10. EclipseCon 2006 - Introduction to EMF
+
+    * Presentation (PDF)
+    * Workshop Project (ZIP)
+Student : 
+
+P11. EclipseCon 2006 - Advanced Features of EMF
+
+    * Presentation (PDF)
+    * Workshop Project (ZIP)
+Student : 
+
+P12. EclipseCon 2006 - XML Binding with EMF
+
+    * Presentation (PDF)
+    * Project (ZIP)

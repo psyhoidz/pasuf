@@ -32,8 +32,7 @@ public class List implements AbstractStructure {
 	}
 
 	@Override
-	public Object CreateIterator() {
-		// TODO Auto-generated method stub
+	public Iterator CreateIterator() {
 		return new ListIterator(this);
 	}
 

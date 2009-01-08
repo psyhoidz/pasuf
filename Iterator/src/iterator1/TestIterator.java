@@ -12,11 +12,12 @@ public class TestIterator {
 		l.Append(new Integer(2));
 		l.Append(new Integer(5));
 		l.Append(new Integer(10));
+		l.Append(new String("ceva"));
 		
 		System.out.println("The List:");
-		ListIterator i = (ListIterator)l.CreateIterator();
+		Iterator i = l.CreateIterator();
 		for(i.First(); i.IsDone(); i.Next()) {
-			System.out.println("->"+(Integer)(i.CurrentItem()));
+			System.out.println("--" + i.CurrentItem());
 		}
 	}
 

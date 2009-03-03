@@ -1,0 +1,24 @@
+\contentsline {chapter}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {1.1}Context and motivation}{2}
+\contentsline {section}{\numberline {1.2}Contents}{3}
+\contentsline {section}{\numberline {1.3}Using a PC}{3}
+\contentsline {chapter}{\numberline {2}Formulas and theorems}{4}
+\contentsline {section}{\numberline {2.1}Plain}{4}
+\contentsline {section}{\numberline {2.2}Fancy}{5}
+\contentsline {section}{\numberline {2.3}Theorems}{6}
+\contentsline {section}{\numberline {2.4}Summary}{7}
+\contentsline {chapter}{\numberline {3}Graphics and tables}{8}
+\contentsline {section}{\numberline {3.1}Plain}{8}
+\contentsline {section}{\numberline {3.2}Fancy}{9}
+\contentsline {section}{\numberline {3.3}Tables}{11}
+\contentsline {section}{\numberline {3.4}Summary}{11}
+\contentsline {chapter}{\numberline {4}Conclusion}{12}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Acknowledgements}{12}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Bibliography}{13}
+\contentsline {chapter}{\numberline {A}About references}{15}
+\contentsline {section}{\numberline {A.1}Organisation}{15}
+\contentsline {section}{\numberline {A.2}Doing it}{16}
+\contentsline {chapter}{\numberline {B}Long proofs}{18}
+\contentsline {section}{\numberline {B.1}Proof of theorem 2.3\hbox {}}{18}
+\contentsline {chapter}{\numberline {C}Computer programs}{19}
+\contentsline {chapter}{\numberline {D}Typography and grammar}{20}

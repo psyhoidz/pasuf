@@ -1,0 +1,23 @@
+
+	\subsection{SSI -- Simple Sensor Interface}
+
+SSI is a network protocol described in \cite{Hyyrylaeinen2005} that allows a device to query sensor devices, it is developed within the european project MIMOSA, and in what follows we shall make a short presentation regarding it based on the previously cited paper.
+
+The SSI protocol is intended to be used for short range wireless sensor networks, or for sensors directly connected to the querying device (the terminal as they call it, or gateway / frontend as it is called in our terminology), and its design principles were:
+\begin{itemize}
+	\item simplicity --- because the devices must run for long periods of time with small batteries or limited power sources, the protocol must not require to much processing power (which leads to power consumption);
+	\item communication links could be shared --- more than one node could be connected on the same communication medium, as it allways happens in a wireless environment, or as it could happen if the communication is done over the electrical power grid;
+	\item multiple sensors could be hosted inside a single node;
+	\item node discovery --- the protocol should be addapted to a dynamic sensor network, and should provide means for discovery of both the participating nodes and their abilities;
+	\item the protocol should allow both data aquisition, and node configuration tasks;
+\end{itemize}
+
+We have listed these principles here, because they apply almost entirely to the context of our own project. (Except maybe the fact that we could indulge ourselves to a little more complex solution, because our target are medium sensor nodes (see targeted devices section ???), and their solution targets low-level sensor boards.)
+
+The protocol implies the exchange of small packets, and we shall only review the possible operations:
+\begin{itemize}
+	\item query and discover commands --- that allows the terminal (gateway) to discover both nodes and their attached sensors; also it allows some parameters to be discovered (as implemented protocol version, sensor types, identifier (address), unit or scale, etc.);
+	\item get / set configuration and reset --- used to control the nodes operating parameters;
+	\item request data --- used to implement active (pull) querying;
+	\item create / destroy observer --- allowing the terminal to be notified about sensor data changes, thus allowing the passive (push) querying paradigm; what is also important to note is that the observers could be created at the request of the terminal, but also at the request of the sensor node;
+\end{itemize}

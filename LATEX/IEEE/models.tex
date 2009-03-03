@@ -1,0 +1,92 @@
+
+	\subsection{Sensor query protocols and models}
+
+During the initial phase of the project we tried to determine which are the most appropriate (and the most used) models and interaction paradigms inside a (wireless) sensor network.
+
+	\subsubsection{Models}
+
+Thus we started with the models involved, which --- generally speaking --- are referring to:
+
+\begin{itemize}
+	\item which are the entities, or as we call them the actors involved (or better said the classes of actors); (we shall see in a minute about them;)
+	\item the context or environment in which the actors execute their designated tasks; (for example we could be speaking here about the limited power source, the limited or high error-rate communication medium, or even about the remote locations in which they operate;)
+	\item the operational constraints that result from the environment; (for example the limited power source implies that the communications should be kept at a minimum, buffering as much data until a full package could be sent; or the fact that the actors should be autonomous and self-maintained because human-based maintainance on the site is not possible due to the remote location;)
+	\item the way in which the responsabilities (the tasks) are divided and assigned to different actors; (some of them might have special roles;)
+	\item activity classes --- generally speaking which are the most encountered types of tasks;
+\end{itemize}
+
+The result of the survey we concluded that almost all read papers split the actors in mainly three classes:
+
+\begin{itemize}
+	\item the frontend --- a central entity, usually a powerfull (or at least resonably powerfull) device, that allows final users to interact with the sensor network; they usually present a user interface, or allow the collected data to be exported in a certain format;
+	\item gateway --- it resembles the frontend, with the exception that this one is not user-centric, but it serves as a mediator between the sensor network and other applications; it usually exports an network API (through a binary protocol);
+	\item sensor or actuator --- the actual sensing device;
+\end{itemize}
+
+As a consequence we found this generaly aggreed-upon model is well suited to our needs, and we didn't investigate further on this matter.
+
+Regarding the activity classes one paper \cite{Jaikaeo2000} gives a high lewel classification:
+\begin{itemize}
+	\item querying --- it is described as a synchronous the process in which a central unit (a front-end or a gateway) generates an exact and explicit data query and 'injects' it into the network, expecting that each node will execute it and send back the results in order for the central unit to interpret the data;
+	\item tasking --- a coordinated activity between nodes that could span longer periods of time (more than a couple of minutes); the sensors are considered to be active and autonomous;
+\end{itemize}
+
+For the moment, in the context of the Dehems project, we are interested mainly on querying operations (sensor readings), but in the future we could also turn them into active (decision and action capable) devices (actuators), and thus focus on tasking operations.
+
+Thus going further on the querying operations path, another paper \cite{Shi2004} classifies them as:
+
+\begin{itemize}
+	\item pull (active) querying --- the central unit asks (by means of area multicast or broadcast) all the sensors in (a part of the) network for certain readings; and as the readings arrive back, they are aggregated;
+	\item push (passive) querying --- the central unit asks (again either the entire or a part of the network) to be notified when a certain reading is modified; then it waits and aggregates continuously the received data;
+	\item combined;
+\end{itemize}
+
+They also note that active querying is usable in short period, direct interest, not frequent queries; meanwhile the passive querying should be used for long period, continuously monitorying of readings.
+
+As querying paradigms, almost all read papers (concerning this problem) \cite{Woo2004}, \cite{Shi2004}, \cite{Jaikaeo2000}, \cite{Gehrke2003} propose a SQL like interface, that allows users to write specific queries that will be executed against the sensor network. Also almost all of them allow both push and pull type of queries to be written.
+
+Unfortunatly these solutions (and their backing execution platforms) have at least some disadvantage, that in the context of the Dehems project renders them unusable:
+\begin{itemize}
+	\item they can't be used in data-mining tasks, because they were not designed to collect data, but instead to efficiently aggregate data close to the node, and propagate through the network only partial results; and in data-mining tasks we need exactly the oposite: we want to collect as much raw data as possible, to be able to process it afterwards.
+	\item the query must have a precise goal and can't be addapted to a dynamic sensor network environment;
+\end{itemize}
+
+In our research we haven't found a proposal for a framework that would be focused on data aquisition. Althought we did found solutions for querying data streams (like \cite{Madden2002}).
+
+	\subsubsection{Interaction}
+
+Regarding the interaction paradigms we are referring to the following issues:
+
+\begin{itemize}
+	\item actor identification --- how do actors know to disdinguish between multiple instances of the same class; (also how do we establish a long term identification scheme;)
+	\item actor addressing (or better said node addressing) --- the way in which we actually tagg the identity of an actor with an actual message delivery address; (altought the addressing resembles the identification, the current one has a more transient nature, beeing short termed, and usually dependent on external factors; think for example at the distinction between a laptop (its identity given by the owner) and the IP address assigned differently as the laptop roams from a network to another;)
+	\item actor discovery --- the method used by any actor to discover nearby actors, or actors that could offer needed services;
+	\item actor interaction --- how different actors exchange information one with another;
+\end{itemize}
+
+Regarding the first two issues (identification and addressing) there is not to much in the litreture, usually identification beeing assimilated with addressing, and addressing beeing solved by a number assigned at production time (like the MAC in the case of Ethernet).
+
+Now because in the context of our project we must be able to identify on the long term each sensor, but because sensors could travel from one location (household) into another, we should be able to decouple the identification (which should pe permanent) and the addressing (which could be based on the current location).
+
+Also usually discovery is reduced to finding the addresses of all the sensors (actors) inside a network and their capabilities. (More about this in the next paragraph.)
+
+About the actual interaction model, one paper \cite{Shi2004} splits them into:
+
+\begin{itemize}
+	\item unicast --- from one actor to exactly another (exactly) identified actor;
+	\item area multicast --- from one actor to all the actors inside an (identified) physical area;
+	\item area anycast --- from one actor to (exactly) one actor inside a physical area;
+	\item broadcast --- from one actor to all the other actors inside a network;
+\end{itemize}
+
+Going even further \cite{He2007} proposes a different view:
+
+\begin{itemize}
+	\item abc --- 'anonymous best-effort single-hop broadcast' --- sends the same message to all the direct neighbours (unreliable);
+	\item ibc --- 'identified best-effort single-hop broadcast' --- sends the same message (but attached with a senders's address) to all the direct neighbours (unreliable);
+	\item uc --- 'best-effort single-hop unicast' --- sends one message to a designated direct neighbour (sender and receiver attached addresses, unreliable);
+	\item suc --- 'stubborn single-hop unicast' --- sends the same message repeatedly to the same designated direct neighbour (sender and receiver attached addresses, unreliable, continuous);
+	\item ruc --- 'reliable single-hop unicast' --- sends one message to a designated direct neighbour (sender and receiver attached addresses, reliable);
+	\item polite --- 'polite single-hop broadcast' --- sends 
+\end{itemize}
+

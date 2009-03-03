@@ -1,0 +1,11 @@
+Fisierul romanian alaturat este important sa fie integrat in documentele LATEX pentru a usura scrierea cu caractere romanesti. 
+
+trebuie introdus : \usepackage{romanian} in sectiunea de la inceputul documentului latex. 
+
+Scrierea cu caractere romanesti se va face astfel : 
+
+a  'a
+î  'i
+s  's
+t  't
+â   \^{a} 

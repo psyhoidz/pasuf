@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<umlet_diagram>
+<element>
+<type>com.umlet.element.base.activity.ActivityDiagramText</type>
+<coordinates>
+<x>10</x><y>10</y>
+<w>390</w><h>330</h>
+</coordinates>
+<panel_attributes>title:
+Start
+
+End
+</panel_attributes>
+<additional_attributes></additional_attributes>
+</element>
+<element>
+<type>com.umlet.element.base.activity.ActivityDiagramText</type>
+<coordinates>
+<x>130</x><y>10</y>
+<w>390</w><h>330</h>
+</coordinates>
+<panel_attributes>title:Example Hotline
+Start
+Telephone\     rings
+While[open\calls]
+	[free]
+	Fork
+		If
+			[responsible]
+			take call
+			help caller
+
+			[not responsible]
+			forward call\(with subactions)..
+		EndIf
+
+		|
+		|
+		|
+		document call~id1
+	Sync
+
+	[busy]
+	record\call
+	wait until\   free>
+	>free
+	playback\recorded call->id1
+[no open calls]
+End
+
+</panel_attributes>
+<additional_attributes></additional_attributes>
+</element>
+</umlet_diagram>

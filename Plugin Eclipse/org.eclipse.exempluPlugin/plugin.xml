@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="org.eclipse.exempluPlugin.openResourceManager"
+            label="Open Resource Manager"
+            visible="true">
+         <action
+               class="org.eclipse.exempluplugin.views.OpenPropertyMangerViewAction"
+               icon="icons/sample.gif"
+               id="org.eclipse.exempluPlugin.openPropertyManager"
+               label="Open Property Manager"
+               style="push"
+               toolbarPath="exempluPlugin">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="org.eclipse.exempluPlugin"
+            name="Resource Manager View">
+      </category>
+      <view
+            allowMultiple="true"
+            category="org.eclipse.exempluPlugin"
+            class="org.eclipse.exempluplugin.views.PropertyManagerView"
+            icon="icons/sample.gif"
+            id="org.eclipse.exempluplugin.views.SampleView"
+            name="Property Manager View">
+      </view>
+   </extension>
+
+</plugin>

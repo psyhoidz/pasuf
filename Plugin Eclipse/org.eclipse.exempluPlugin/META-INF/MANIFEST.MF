@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Exemplu Plug-in
+Bundle-SymbolicName: org.eclipse.exempluPlugin; singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.2",
+ org.eclipse.ui.ide;bundle-version="3.2"
+Eclipse-LazyStart: true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: Adi & Tudor
+Bundle-Activator: org.eclipse.exempluplugin.Activator

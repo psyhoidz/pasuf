@@ -1,0 +1,70 @@
+// Some import to have access to more Java features
+import java.awt.*;
+import java.util.*;
+import com.umlet.control.*;
+import com.umlet.element.base.Entity;
+
+public class <!CLASSNAME!> extends com.umlet.element.base.Entity {
+
+  // Change this method if you want to edit the graphical 
+  // representation of your custom element.
+  public void paint(Graphics g) {
+
+    // Some unimportant initialization stuff; setting color, font 
+    // quality, etc. You should not have to change this.
+    Graphics2D g2=(Graphics2D) g; g2.setFont(Constants.getFont());
+    g2.setColor(_activeColor); Constants.getFRC(g2);
+
+
+    // It's getting interesting here:
+    // First, the strings you type in the element editor are read and
+    // split into lines.
+    // Then, by default, they are printed out on the element, aligned
+    // to the left.
+    // Change this to modify this default text printing and to react
+    // to special strings
+    // (like the "--" string in the UML class elements which draw a line).
+    Vector tmp=Constants.decomposeStrings(this.getPanelAttributes(), "\n");
+    int yPos=Constants.getDistLineToText();
+    for (int i=0; i<tmp.size(); i++) {
+      String s=(String)tmp.elementAt(i);
+      yPos+=Constants.getFontsize();
+      Constants.write(g2,s,Constants.getFontsize()/2, yPos, false);
+      yPos+=Constants.getDistTextToText();
+    }
+
+
+    // Finally, change other graphical attributes using
+    // drawLine, getWidth, getHeight..
+    g2.drawLine(0,0,this.getWidth()-Constants.getFontsize(),0);
+    g2.drawLine(this.getWidth()-Constants.getFontsize(),0,this.getWidth()-1, Constants.getFontsize());
+    g2.drawLine(this.getWidth()-1, Constants.getFontsize(),this.getWidth()-1, this.getHeight()-1);
+    g2.drawLine(this.getWidth()-1, this.getHeight()-1, 0, this.getHeight()-1);
+    g2.drawLine(0, this.getHeight()-1, 0, 0);
+    g2.drawLine(this.getWidth()-Constants.getFontsize(),0,this.getWidth()-Constants.getFontsize(), Constants.getFontsize());
+    g2.drawLine(this.getWidth()-Constants.getFontsize(),Constants.getFontsize(),this.getWidth()-1, Constants.getFontsize());
+  }
+
+
+  // Change this method if you want to set the resize-attributes of
+  // your custom element
+  public int getPossibleResizeDirections() {
+    // Remove from this list the borders you don't want to be resizeable.
+    return Constants.RESIZE_TOP | Constants.RESIZE_LEFT | Constants.RESIZE_BOTTOM | Constants.RESIZE_RIGHT;
+  }
+
+
+  // Advanced: change this method to modify the area where relations
+  // stick to your custom element.
+  public StickingPolygon getStickingBorder() {
+    // By default, the element returns its outer borders. Change it,
+    // if your element needs to stick to relations differently.
+    // See, for example, the source code of the UML interface element.
+    StickingPolygon p = new StickingPolygon();
+    p.addLine(new Point(0,0), new Point(this.getWidth()-1,0),Constants.RESIZE_TOP);
+    p.addLine(new Point(this.getWidth()-1,0), new Point(this.getWidth()-1,this.getHeight()-1),Constants.RESIZE_RIGHT);
+    p.addLine(new Point(this.getWidth()-1,this.getHeight()-1), new Point(0,this.getHeight()-1),Constants.RESIZE_BOTTOM);
+    p.addLine(new Point(0,this.getHeight()-1), new Point(0,0),Constants.RESIZE_LEFT);
+    return p;
+  }
+}

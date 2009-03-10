@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?> <!-- [UB]: make it a native eclipse-3.0 plugin -->
+
+<!-- [UB]: Changed some attributes of plugin (version,provider,id)
+          Some other changes for eclipse-3.0 compatibility
+-->
+<plugin
+   id="com.umlet.plugin"
+   name="Umlet Plug-in"
+   version="6.0.0"
+   provider-name="www.umlet.com"
+   class="com.umlet.plugin.UmletPlugin">
+
+   <runtime>
+      <library name="umlet.jar"/>
+      <library name="lib/epsgraphics.jar"/>
+      <library name="lib/batik-all.jar"/>
+      <library name="lib/pdf-transcoder.jar"/>
+      <library name="lib/tools.jar"/>
+   </runtime>
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
+   </requires>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="Umlet Editor"
+            extensions="uxf"
+            icon="icons/umlet.gif"
+            class="com.umlet.plugin.editors.UmletEditor"
+            id="com.umlet.plugin.editors.UmletEditor">
+      </editor>
+      
+   </extension>
+
+<extension
+    point = "org.eclipse.ui.newWizards">
+    <category
+        id = "com.umlet.plugin.uxf.new"
+        name="Umlet">
+    </category>
+    <wizard
+        id = "com.umlet.plugin.uxf.new.file"
+        name = "Diagram"
+        class="com.umlet.plugin.wizards.NewWizard"
+        category="com.umlet.plugin.uxf.new"
+        icon="icons/umlet.gif">
+        <description>New Umlet Diagram Wizard</description>
+        <selection class="org.eclipse.core.resources.IResource"/>
+    </wizard>
+</extension>
+</plugin>
